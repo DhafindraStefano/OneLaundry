@@ -316,7 +316,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(passwordEmpty)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(buttonSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
 
@@ -383,8 +383,8 @@ public class Register extends javax.swing.JFrame {
         String nama = TextFieldNama.getText();
         String alamat = TextFieldAlamat.getText();
         String notelp = TextFieldnoTelp.getText();
-        
         String jeniskelamin = "";
+        
         try {
             if (groupKelamin.getSelection().equals(buttonCowo.getModel())) {
                 jeniskelamin = "Laki-Laki";
@@ -403,16 +403,20 @@ public class Register extends javax.swing.JFrame {
         RegisterController registerController = new RegisterController();
         int idAdmin = registerController.getNextIdAdmin();
         int idPerson = registerController.getNextIdPerson();
+        
+        //kalau text field masing-masing kosong
         if (nama.equals("")){
             namaEmpty.setText("This field is required");
         }else if(!nama.equals("")){
             namaEmpty.setText("");
         }
+        
         if (alamat.equals("")){
             alamatEmpty.setText("This field is required");
         }else if (!alamat.equals("")){
             alamatEmpty.setText("");
         }
+        
         if (notelp.equals("")){
             noTelpEmpty.setText("This field is required");
         }else if (!notelp.equals("")){
@@ -424,18 +428,23 @@ public class Register extends javax.swing.JFrame {
         }else if (!password.equals("")){
             passwordEmpty.setText("");
         }
+        
         if(username.equals("")){
             usernameEmpty.setText("This field is required");
         }else if (!username.equals("")){
             usernameEmpty.setText("");
         }
+        
+        
         if(registerController.usernameTaken(username)){
             usernameEmpty.setText("");
             JOptionPane.showMessageDialog(null, "Username Already Taken");
-        }else if (!nama.equals("")&&!alamat.equals("")&&!notelp.equals("")&&!jeniskelamin.equals("")&&!password.equals("")&&!username.equals("")){
+        }else if (!nama.equals("")&&!alamat.equals("")&&!notelp.equals("")
+                &&!jeniskelamin.equals("")&&!password.equals("")&&!username.equals("")){
             try {
                 registerController.insertAdmin(idAdmin,username,password);
-                registerController.insertPerson(idPerson, nama, alamat, notelp, jeniskelamin, idAdmin);
+                registerController.insertPerson(idPerson, nama, alamat, notelp, 
+                        jeniskelamin, idAdmin);
                 setVisible(false);
                 Login login = new Login();
                 login.setVisible(true);

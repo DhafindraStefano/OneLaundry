@@ -82,6 +82,11 @@ public class Login extends javax.swing.JFrame {
                 buttonLoginActionPerformed(evt);
             }
         });
+        buttonLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buttonLoginKeyPressed(evt);
+            }
+        });
 
         buttonExit.setBackground(new java.awt.Color(48, 48, 48));
         buttonExit.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,6 +207,10 @@ public class Login extends javax.swing.JFrame {
         setVisible(false);
         reg.setVisible(true);
     }//GEN-LAST:event_buttonExitActionPerformed
+
+    private void buttonLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonLoginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLoginKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

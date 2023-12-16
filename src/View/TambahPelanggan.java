@@ -1,10 +1,12 @@
 package View;
 
 import Controller.CustomerController;
+import javax.swing.JOptionPane;
 
 public class TambahPelanggan extends javax.swing.JFrame {
     public TambahPelanggan() {
         initComponents();
+        
     }
 
     /**
@@ -29,8 +31,12 @@ public class TambahPelanggan extends javax.swing.JFrame {
         TextFieldnoTelp = new javax.swing.JTextField();
         TextFieldAlamat = new javax.swing.JTextField();
         TextFieldNama = new javax.swing.JTextField();
-        buttonSimpan2 = new javax.swing.JButton();
+        buttonSimpan = new javax.swing.JButton();
         buttonKembali = new javax.swing.JButton();
+        namaEmpty = new javax.swing.JLabel();
+        alamatEmpty = new javax.swing.JLabel();
+        noTelpEmpty = new javax.swing.JLabel();
+        jenisKelaminEmpty = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,13 +98,13 @@ public class TambahPelanggan extends javax.swing.JFrame {
             }
         });
 
-        buttonSimpan2.setBackground(new java.awt.Color(48, 48, 48));
-        buttonSimpan2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSimpan2.setText("Simpan");
-        buttonSimpan2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        buttonSimpan2.addActionListener(new java.awt.event.ActionListener() {
+        buttonSimpan.setBackground(new java.awt.Color(48, 48, 48));
+        buttonSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSimpan.setText("Simpan");
+        buttonSimpan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSimpan2ActionPerformed(evt);
+                buttonSimpanActionPerformed(evt);
             }
         });
 
@@ -112,6 +118,14 @@ public class TambahPelanggan extends javax.swing.JFrame {
             }
         });
 
+        namaEmpty.setForeground(new java.awt.Color(255, 255, 255));
+
+        alamatEmpty.setForeground(new java.awt.Color(255, 255, 255));
+
+        noTelpEmpty.setForeground(new java.awt.Color(255, 255, 255));
+
+        jenisKelaminEmpty.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -120,30 +134,40 @@ public class TambahPelanggan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelNama2)
-                            .addComponent(LabelAlamat2)
-                            .addComponent(LabelnoTelp2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextFieldNama, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(TextFieldnoTelp)
-                            .addComponent(TextFieldAlamat)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelTambahDataPelanggan2)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(LabelKelamin2)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(LabelTambahDataPelanggan2)
+                        .addGap(112, 112, 112))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGap(84, 84, 84)
+                                    .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(24, 24, 24)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jenisKelaminEmpty)
+                                        .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGap(13, 13, 13)
+                                    .addComponent(LabelKelamin2)
+                                    .addGap(100, 100, 100)
                                     .addComponent(buttonCowo)
-                                    .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buttonSimpan2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(buttonCewe))))
-                        .addGap(0, 82, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addGap(18, 18, 18)
+                                    .addComponent(buttonCewe)))
+                            .addGap(13, 13, 13))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(LabelNama2)
+                                .addComponent(LabelAlamat2)
+                                .addComponent(LabelnoTelp2))
+                            .addGap(113, 113, 113)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(TextFieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                .addComponent(namaEmpty, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TextFieldNama, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(alamatEmpty, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(noTelpEmpty, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TextFieldnoTelp))
+                            .addContainerGap()))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,24 +178,36 @@ public class TambahPelanggan extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelNama2))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(namaEmpty)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelAlamat2))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatEmpty)
+                .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldnoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelnoTelp2))
+                .addGap(1, 1, 1)
+                .addComponent(noTelpEmpty)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonCowo)
+                            .addComponent(buttonCewe)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelKelamin2)))
+                .addGap(1, 1, 1)
+                .addComponent(jenisKelaminEmpty)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelKelamin2)
-                    .addComponent(buttonCowo)
-                    .addComponent(buttonCewe))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSimpan2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -181,7 +217,7 @@ public class TambahPelanggan extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,9 +237,7 @@ public class TambahPelanggan extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -228,21 +262,59 @@ public class TambahPelanggan extends javax.swing.JFrame {
         H.setVisible(true);
     }//GEN-LAST:event_buttonKembaliActionPerformed
 
-    private void buttonSimpan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpan2ActionPerformed
+    private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
         String namaPelanggan = TextFieldNama.getText();
         String alamatPelanggan = TextFieldAlamat.getText();
         String notelpPelanggan = TextFieldnoTelp.getText();
         
         String jeniskelamin = "";
-        if (groupKelamin.getSelection().equals(buttonCowo.getModel())) {
-            jeniskelamin = "Laki-Laki";
-        } else if (groupKelamin.getSelection().equals(buttonCewe.getModel())) {
-            jeniskelamin = "Perempuan";
+        try { //try catch jenisKelamin
+            if (groupKelamin.getSelection().equals(buttonCowo.getModel())) {
+                jeniskelamin = "Laki-Laki";
+            } else if (groupKelamin.getSelection().equals(buttonCewe.getModel())) {
+                jeniskelamin = "Perempuan";
+            }
+        } catch (NullPointerException e) {
+            jenisKelaminEmpty.setText("Please select one of two");
         }
-        CustomerController customerController = new CustomerController();
-        customerController.insertPerson(namaPelanggan, alamatPelanggan, notelpPelanggan, jeniskelamin);
-    }//GEN-LAST:event_buttonSimpan2ActionPerformed
+        if (!jeniskelamin.equals("")){
+            jenisKelaminEmpty.setText("");
+        }
+
+        //kalau text field masing-masing kosong
+        if (namaPelanggan.equals("")){
+            namaEmpty.setText("This field is required");
+        }else if(!namaPelanggan.equals("")){
+            namaEmpty.setText("");
+        }
+        if (alamatPelanggan.equals("")){
+            alamatEmpty.setText("This field is required");
+        }else if (!alamatPelanggan.equals("")){
+            alamatEmpty.setText("");
+        }
+        if (notelpPelanggan.equals("")){
+            noTelpEmpty.setText("This field is required");
+        }else if (!notelpPelanggan.equals("")){
+            noTelpEmpty.setText("");
+        }
+        
+        if(!namaPelanggan.equals("")&&!alamatPelanggan.equals("")&&
+                !notelpPelanggan.equals("")&&!jeniskelamin.equals("")){
+            try{
+                CustomerController customerController = new CustomerController();
+                customerController.insertPerson(namaPelanggan, alamatPelanggan, notelpPelanggan, jeniskelamin);
+                Home H = new Home();
+                setVisible(false);
+                H.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Data Pelanggan berhasil disimpan");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Penambahan data pelanggan gagal");
+            }
+        }
+        
+        
+    }//GEN-LAST:event_buttonSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,12 +360,16 @@ public class TambahPelanggan extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldAlamat;
     private javax.swing.JTextField TextFieldNama;
     private javax.swing.JTextField TextFieldnoTelp;
+    private javax.swing.JLabel alamatEmpty;
     private javax.swing.JRadioButton buttonCewe;
     private javax.swing.JRadioButton buttonCowo;
     private javax.swing.JButton buttonKembali;
-    private javax.swing.JButton buttonSimpan2;
+    private javax.swing.JButton buttonSimpan;
     private javax.swing.ButtonGroup groupKelamin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jenisKelaminEmpty;
+    private javax.swing.JLabel namaEmpty;
+    private javax.swing.JLabel noTelpEmpty;
     // End of variables declaration//GEN-END:variables
 }

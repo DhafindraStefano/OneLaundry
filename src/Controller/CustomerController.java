@@ -75,7 +75,7 @@ public class CustomerController {
         return listCustomerSesuaiAdmin;
     }
     public void insertPerson(String nama, String alamat, String noTelp, String jenisKelamin){
-        String sql1 = "Insert Into person (idPerson, nama,alamat,noTelp,jenisKelamin) values (?,?,?,?,?)";
+        String sql1 = "INSERT INTO person (idPerson, nama,alamat,noTelp,jenisKelamin) values (?,?,?,?,?)";
         RegisterController RC = new RegisterController();
         int idPerson = RC.getNextIdPerson();
         int idCustomer = getNextIdCustomer();
@@ -91,7 +91,7 @@ public class CustomerController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String sql2 = "Insert Into customer (idCustomer,idPerson,idAdmin) values (?,?,?)";
+        String sql2 = "INSERT INTO customer (idCustomer,idPerson,idAdmin) values (?,?,?)";
         try {
             Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/onelaundry", "username", "password");
             PreparedStatement Ps = Con.prepareStatement(sql2);
