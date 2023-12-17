@@ -192,12 +192,12 @@ public class Login extends javax.swing.JFrame {
         LoginController loginController = new LoginController();
         loginSuccess = loginController.LoginController(username, password);
         if (loginSuccess){
-            JOptionPane.showMessageDialog(null, "You have successfully Logged in");
+            JOptionPane.showMessageDialog(null, "Login berhasil!");
             Home H = new Home();
             setVisible(false);
             H.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "Username or Password Incorrect");
+            JOptionPane.showMessageDialog(null, "Username atau Password salah");
         }
         
     }//GEN-LAST:event_buttonLoginActionPerformed

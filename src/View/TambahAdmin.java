@@ -430,7 +430,7 @@ public class TambahAdmin extends javax.swing.JFrame {
         if(username.equals("")){
             usernameEmpty.setText("This field is required");
         }else if(registerController.usernameTaken(username)){
-            JOptionPane.showMessageDialog(null, "Username Already Taken");
+            JOptionPane.showMessageDialog(null, "Username sudah diambil");
         }else{
             try {
                 registerController.insertAdmin(idAdmin,username,password);
@@ -438,9 +438,9 @@ public class TambahAdmin extends javax.swing.JFrame {
                 setVisible(false);
                 Login login = new Login();
                 login.setVisible(true);
-                JOptionPane.showMessageDialog(null, "Registration Successful");
+                JOptionPane.showMessageDialog(null, "Registrasi berhasil!");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Registration Unsuccessfull");
+                JOptionPane.showMessageDialog(null, "Registrasi gagal");
             }
         }
 

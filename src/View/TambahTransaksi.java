@@ -452,12 +452,6 @@ public class TambahTransaksi extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Gagal Menambah Transaksi");
             }
         }
-        
-//        if(transactionController.adaTransaksi(idTransaksi)){
-//            JOptionPane.showMessageDialog(null, "Berhasil Menambah Transaksi");
-//        }else{
-//            JOptionPane.showMessageDialog(null, "Gagal Menambah Transaksi");
-//        }
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
     private void TextFieldJenisLayananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldJenisLayananActionPerformed

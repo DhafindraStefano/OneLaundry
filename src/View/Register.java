@@ -438,7 +438,7 @@ public class Register extends javax.swing.JFrame {
         
         if(registerController.usernameTaken(username)){
             usernameEmpty.setText("");
-            JOptionPane.showMessageDialog(null, "Username Already Taken");
+            JOptionPane.showMessageDialog(null, "Username Sudah Diambil");
         }else if (!nama.equals("")&&!alamat.equals("")&&!notelp.equals("")
                 &&!jeniskelamin.equals("")&&!password.equals("")&&!username.equals("")){
             try {
@@ -448,9 +448,9 @@ public class Register extends javax.swing.JFrame {
                 setVisible(false);
                 Login login = new Login();
                 login.setVisible(true);
-                JOptionPane.showMessageDialog(null, "Registration Successful");
+                JOptionPane.showMessageDialog(null, "Registrasi berhasil!");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Registration Unsuccessfull");
+                JOptionPane.showMessageDialog(null, "Registrasi gagal");
             }
         }
         
