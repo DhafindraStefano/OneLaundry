@@ -194,7 +194,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add"/>
+                <Property name="text" type="java.lang.String" value="Tambah"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
@@ -224,8 +224,12 @@
                               <Component id="LabelDataTransaksi" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="buttonTambahTransaksi" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonUpdateTransaksi" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonDeleteTransaksi" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="1" pref="706" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -238,6 +242,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="LabelDataTransaksi" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonTambahTransaksi" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonUpdateTransaksi" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonDeleteTransaksi" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="83" max="-2" attributes="0"/>
@@ -323,7 +329,7 @@
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable()"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="TransactionController transactionController = new TransactionController();&#xa;//int jumTransaksi;&#xa;//&#xa;//jumTransaksi = transactionController.countOfAdminTransaction(Login.adminId);&#xa;//if (jumTransaksi==0){&#xa;//    ObjectTransaksi = new Object[1][7];&#xa;//}else{&#xa;//    ObjectTransaksi = new Object[jumTransaksi][7];&#xa;//}&#xa;//System.out.println(&quot;Jumlah transaksi sesuai idadmin:&quot;+jumTransaksi);&#xa;ArrayList&lt;ModelTransaksi&gt; listTransaksi;&#xa;listTransaksi = transactionController.getTransactionData();&#xa;&#xa;&#xa;ArrayList&lt;ModelTransaksi&gt; listTransaksiSesuaiAdmin;&#xa;listTransaksiSesuaiAdmin = transactionController.getTransactionDataSesuaiAdmin(listTransaksi,Login.adminId);&#xa;Object[][] ObjectTransaksi = new Object[listTransaksiSesuaiAdmin.size()][9];&#xa;//System.out.println(&quot;size listTransaksi:&quot;+listTransaksi.size());&#xa;&#xa;for (int i=0; i&lt;listTransaksiSesuaiAdmin.size();i++){&#xa;    //System.out.println(listCustomer.get(i).getIdAdmin());&#xa;    //System.out.println(Login.adminId);&#xa;//    if (listTransaksi.get(i).getIdAdmin()== Login.adminId){&#xa;//        System.out.println(&quot;Masuk data transaksi&quot;);&#xa;    for (int j=0;j&lt;9;j++){&#xa;        if (j==0){&#xa;            ObjectTransaksi[i][j] = i+1;&#xa;        }else if (j==1){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getIdCustomer();&#xa;        }else if (j==2){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getLayanan();&#xa;        }else if (j==3){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getStatus();&#xa;        }else if (j==4){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getTgl();&#xa;        }else if (j==5){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getItem();&#xa;        }else if (j==6){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getHargaPerKg();&#xa;        }else if (j==7){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getBerat();&#xa;        }else if (j==8){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getTotal();&#xa;        }&#xa;    }&#xa;    //}&#xa;}"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="TransactionController transactionController = new TransactionController();&#xa;&#xa;ArrayList&lt;ModelTransaksi&gt; listTransaksi;&#xa;listTransaksi = transactionController.getTransactionData();&#xa;&#xa;&#xa;ArrayList&lt;ModelTransaksi&gt; listTransaksiSesuaiAdmin;&#xa;listTransaksiSesuaiAdmin = transactionController.getTransactionDataSesuaiAdmin(listTransaksi,Login.adminId);&#xa;Object[][] ObjectTransaksi = new Object[listTransaksiSesuaiAdmin.size()][9];&#xa;&#xa;for (int i=0; i&lt;listTransaksiSesuaiAdmin.size();i++){&#xa;    for (int j=0;j&lt;9;j++){&#xa;        if (j==0){&#xa;            ObjectTransaksi[i][j] = i+1;&#xa;        }else if (j==1){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getIdCustomer();&#xa;        }else if (j==2){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getLayanan();&#xa;        }else if (j==3){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getStatus();&#xa;        }else if (j==4){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getTgl();&#xa;        }else if (j==5){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getItem();&#xa;        }else if (j==6){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getHargaPerKg();&#xa;        }else if (j==7){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getBerat();&#xa;        }else if (j==8){&#xa;            ObjectTransaksi[i][j] = listTransaksiSesuaiAdmin.get(i).getTotal();&#xa;        }&#xa;    }&#xa;    //}&#xa;}"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -333,7 +339,10 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="30" green="30" red="30" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Tambah"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
@@ -342,6 +351,44 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTambahTransaksiActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonUpdateTransaksi">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="30" green="30" red="30" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Update"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUpdateTransaksiActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonDeleteTransaksi">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="30" green="30" red="30" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Hapus"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeleteTransaksiActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

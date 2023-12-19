@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class TransactionController {
     private Statement St;
@@ -119,5 +120,58 @@ public class TransactionController {
             e.printStackTrace();
         }
         return idTransaksi+1;
+    }
+    public void deleteTransaksi(int idTransaksi){
+        String sql = "Delete From transaksi where transaksi.idTransaksi = ?";
+        try {
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/onelaundry", "username", "password");
+            PreparedStatement Ps = Con.prepareStatement(sql);
+            Ps.setInt(1, idTransaksi);
+            Ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateTransaksi(int idTransaksi, String noTransaksi, String layanan,String status, float total,int idCustomer, int idItem,int idAdmin, String berat, String tgl){
+        String sql = "UPDATE transaksi SET noTransaksi = ?, layanan = ?, status = ?, total = ?, idCustomer = ?, idItem = ?, idAdmin = ?, berat = ?, tgl = ? WHERE idTransaksi = ?";
+        try {
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/onelaundry", "username", "password");
+            PreparedStatement Ps = Con.prepareStatement(sql);
+            
+            Ps.setString(1, noTransaksi);
+            Ps.setString(2, layanan);
+            Ps.setString(3, status);
+            Ps.setFloat(4, total);
+            Ps.setInt(5, idCustomer);
+            Ps.setInt(6, idItem);
+            Ps.setInt(7, idAdmin);
+            Ps.setString(8, berat);
+            Ps.setString(9, tgl);
+            Ps.setInt(10, idTransaksi);
+            Ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateRowNumbers(DefaultTableModel tableModel) {
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            tableModel.setValueAt(i, i, 0);
+        }
+    }
+    public int getIdTransaksi(){
+        String sql = "Select transaksi.idTransaksi from transaksi";
+        int idTransaksi = 0;
+        try {
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/onelaundry", "username", "password");
+            PreparedStatement Ps = Con.prepareStatement(sql);
+            Rs = Ps.executeQuery();
+            while (Rs.next()){
+                idTransaksi++;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return idTransaksi;
     }
 }

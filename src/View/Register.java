@@ -191,6 +191,7 @@ public class Register extends javax.swing.JFrame {
         });
 
         buttonSimpan.setBackground(new java.awt.Color(48, 48, 48));
+        buttonSimpan.setForeground(new java.awt.Color(255, 255, 255));
         buttonSimpan.setText("Simpan");
         buttonSimpan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {

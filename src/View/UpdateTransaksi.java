@@ -11,12 +11,58 @@ import javax.swing.JOptionPane;
 
 import Controller.CustomerController;
 import Model.ModelItem;
-public class TambahTransaksi extends javax.swing.JFrame {
-
+public class UpdateTransaksi extends javax.swing.JFrame {
+    private int idTransaksi;
     /**
      * Creates new form TambahTransaksi
      */
-    public TambahTransaksi() {
+    public UpdateTransaksi(int idTransaksi,int noRow) {
+        initComponents();
+        Home home = new Home();
+        Object[][] transactionData = home.getTransactionData();
+        TextFieldJenisLayanan.setText(transactionData[noRow][2].toString());
+        
+        TextFieldBerat.setText("0");
+        this.idTransaksi = idTransaksi;
+        cbID.removeAllItems();
+        ArrayList<ModelCustomer> listCustomer;
+        CustomerController customerController = new CustomerController();
+        listCustomer = customerController.getCustomerData();
+        ArrayList<ModelCustomer> listCustomerSesuaiAdmin;
+        listCustomerSesuaiAdmin = customerController.getCustomerDataSesuaiAdmin(listCustomer, Login.adminId);
+        for(ModelCustomer customer : listCustomerSesuaiAdmin){
+            int idCustomer =  customer.getIdCustomer();
+            String idCustomerStr = ""+idCustomer;
+            cbID.addItem(idCustomerStr);
+        }
+        String strCbID =""+ transactionData[noRow][1];
+        cbID.setSelectedItem(strCbID);
+        cbItem.removeAllItems();
+        
+        String status  = "" + transactionData[noRow][3];
+        if (status.equals("Selesai")){
+            buttonSelesai.setSelected(true);
+        }else{
+            buttonBelumSelesai.setSelected(true);
+        }
+        
+        TextFieldTanggal.setText(transactionData[noRow][4].toString());
+        
+        
+        ItemController itemController = new ItemController();
+        ArrayList<ModelItem> listItems;
+        listItems = itemController.getItemData();
+        String items=""; 
+        for(ModelItem item : listItems){
+            items = item.getItem();
+            cbItem.addItem(items);
+        }
+        String strCbItem = ""+ transactionData[noRow][5];
+        cbItem.setSelectedItem(strCbItem);
+        
+        TextFieldBerat.setText(transactionData[noRow][7].toString());
+    }
+    public UpdateTransaksi() {
         initComponents();
         TextFieldBerat.setText("0");
         
@@ -90,7 +136,7 @@ public class TambahTransaksi extends javax.swing.JFrame {
 
         LabelTambahDataTransaksi.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         LabelTambahDataTransaksi.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTambahDataTransaksi.setText("Tambah Data Transaksi");
+        LabelTambahDataTransaksi.setText("Update Data Transaksi");
 
         LabelIDPelanggan1.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
         LabelIDPelanggan1.setForeground(new java.awt.Color(255, 255, 255));
@@ -435,7 +481,7 @@ public class TambahTransaksi extends javax.swing.JFrame {
         int idItem = itemController.getIdItem(itemName);
         
         TransactionController transactionController = new TransactionController();
-        int idTransaksi = transactionController.getNextIdTransaksi();
+        int idTransaksi = getIdTransaksi();
         String noTransaksi = "T"+idTransaksi;
         
         String beratString = berat+" Kg";
@@ -443,16 +489,20 @@ public class TambahTransaksi extends javax.swing.JFrame {
         if(!jenisLayanan.equals("")&&!statusPencucian.equals("")&&!tgl.equals("")
                 &&berat != 0){
             try{
-                transactionController.insertTransaksi(idTransaksi, noTransaksi, jenisLayanan, statusPencucian, totalF, idPelanggan, idItem,Login.adminId, beratString, tgl);
-                JOptionPane.showMessageDialog(null, "Berhasil Menambah Transaksi");
+                transactionController.updateTransaksi(idTransaksi, noTransaksi, jenisLayanan, statusPencucian, totalF, idPelanggan, idItem,Login.adminId, beratString, tgl);
+                JOptionPane.showMessageDialog(null, "Berhasil Mengupdate Transaksi");
                 Home H = new Home();
                 setVisible(false);
                 H.setVisible(true);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Gagal Menambah Transaksi");
+                JOptionPane.showMessageDialog(null, "Gagal Mengupdate Transaksi");
             }
         }
     }//GEN-LAST:event_buttonSimpanActionPerformed
+
+    public int getIdTransaksi() {
+        return idTransaksi;
+    }
 
     private void TextFieldJenisLayananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldJenisLayananActionPerformed
         // TODO add your handling code here:
@@ -500,20 +550,23 @@ public class TambahTransaksi extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TambahTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TambahTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TambahTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TambahTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TambahTransaksi().setVisible(true);
+                new UpdateTransaksi().setVisible(true);
             }
         });
     }

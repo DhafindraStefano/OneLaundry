@@ -34,10 +34,10 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         LabelUsername = new javax.swing.JLabel();
         LabelPassword = new javax.swing.JLabel();
-        TextFieldPassword = new javax.swing.JTextField();
         TextFieldUsername = new javax.swing.JTextField();
         buttonLogin = new javax.swing.JButton();
         buttonExit = new javax.swing.JButton();
+        TextFieldPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,14 +56,6 @@ public class Login extends javax.swing.JFrame {
         LabelPassword.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
         LabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         LabelPassword.setText("Password");
-
-        TextFieldPassword.setBackground(new java.awt.Color(0, 0, 0));
-        TextFieldPassword.setForeground(new java.awt.Color(255, 255, 255));
-        TextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldPasswordActionPerformed(evt);
-            }
-        });
 
         TextFieldUsername.setBackground(new java.awt.Color(0, 0, 0));
         TextFieldUsername.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,6 +90,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        TextFieldPassword.setBackground(new java.awt.Color(0, 0, 0));
+        TextFieldPassword.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -113,9 +108,8 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(TextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(TextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(TextFieldPassword))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -127,8 +121,8 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(TextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelPassword))
+                    .addComponent(LabelPassword)
+                    .addComponent(TextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
@@ -173,10 +167,6 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldPasswordActionPerformed
 
     private void TextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldUsernameActionPerformed
         // TODO add your handling code here:
@@ -248,7 +238,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelLogin;
     private javax.swing.JLabel LabelPassword;
     private javax.swing.JLabel LabelUsername;
-    private javax.swing.JTextField TextFieldPassword;
+    private javax.swing.JPasswordField TextFieldPassword;
     private javax.swing.JTextField TextFieldUsername;
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonLogin;
